@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from apimodule.views import apimoduleview
+from apimodule.views import apimoduleview, UserRegistrationView
 
 urlpatterns = [
     path('', apimoduleview.as_view()),
+    path('<int:id>/', apimoduleview.as_view()),
+    path('register/', UserRegistrationView.as_view()),
 ]
